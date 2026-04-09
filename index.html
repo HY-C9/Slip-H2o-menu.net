@@ -271,7 +271,7 @@
       <a href="https" class="btn btn-outline-danger btn-sm w-100 rounded-pill mb-2 py-2 fw-medium">
         <i class="bi bi-headset me-1"></i> ติดต่อผู้ดูแลระบบ
       </a>
-      <a href="logout.php" class="btn btn-theme-toggle btn-sm w-100 rounded-pill py-2 fw-medium">
+      <a href="#" onclick="logoutApp()" class="btn btn-theme-toggle btn-sm w-100 rounded-pill py-2 fw-medium">
         <i class="bi bi-box-arrow-right me-1"></i> ออกจากระบบ
       </a>
     </div>
@@ -538,6 +538,34 @@
         }
     });
 </script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyARW02U4K0Ucx9Eq8IWfeR6pVMerfo0v7A",
+        authDomain: "slip-premium-app.firebaseapp.com",
+        projectId: "slip-premium-app",
+        storageBucket: "slip-premium-app.firebasestorage.app",
+        messagingSenderId: "217644633711",
+        appId: "1:217644633711:web:645b3e0fa46d2232fbc79a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/'); 
+        }
+    });
+    window.logoutApp = () => {
+        signOut(auth).then(() => {
+            window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
+        }).catch((error) => {
+            alert("เกิดข้อผิดพลาดในการออกจากระบบ: " + error.message);
+        });
+    };
+</script>
 </body>
 </html>
