@@ -571,7 +571,10 @@
                         return;
                     }
                     const now = new Date();
-                    const expiryDate = data.expiredAt.toDate();
+                    const expiryDate = (data.expiredAt && typeof data.expiredAt.toDate === 'function') 
+                                       ? data.expiredAt.toDate() 
+                                       : new Date(data.expiredAt);
+                    
                     if (data.status !== 'active' || now > expiryDate) {
                         await signOut(auth);
                         window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
