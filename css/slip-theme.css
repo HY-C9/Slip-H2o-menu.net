@@ -1,0 +1,1226 @@
+/* slip-theme.css */
+/* ฟอนต์หลัก */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --slip-bg: #020617;
+  --slip-bg-soft: #030712;
+  --slip-primary: #22c55e;
+  --slip-primary-soft: rgba(34, 197, 94, 0.18);
+  --slip-primary-strong: #16a34a;
+  --slip-border-soft: rgba(148, 163, 184, 0.35);
+  --slip-text-main: #e5e7eb;
+  --slip-text-muted: #9ca3af;
+  --slip-danger: #f97373;
+  --slip-warning: #facc15;
+  --slip-radius-lg: 8px;
+  --slip-shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+  --slip-shadow-button: 0 10px 28px rgba(22, 163, 74, 0.65);
+}
+
+/* BG หลักแบบ slip */
+body {
+  font-family: 'Kanit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(circle at -10% 10%, #16a34a 0, transparent 45%),
+    radial-gradient(circle at 110% 90%, #0f766e 0, transparent 55%),
+    linear-gradient(135deg, #020617 0%, #020617 40%, #020617 100%);
+  color: var(--slip-text-main);
+  min-height: 100vh;
+}
+
+.slip-navbar {
+  background: var(--navbar-bg,
+    radial-gradient(circle at 0% 0%, #16a34a 0, #065f46 26%, #020617 80%)
+  );
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.95),
+    0 0 0 1px var(--navbar-accent, rgba(34, 197, 94, 0.35));
+  border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+}
+
+.slip-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.slip-navbar .brand-pill {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  font-size: 11px;
+  color: var(--slip-text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* การ์ดแบบ slip / glass */
+.slip-card {
+  background: radial-gradient(circle at 0% 0%, rgba(34,197,94,0.08) 0, transparent 45%),
+              linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.97));
+ 
+              border-radius: var(--slip-radius-lg);
+              border: 1px solid var(--slip-border-soft);
+  box-shadow: var(--slip-shadow-soft);
+  backdrop-filter: blur(18px);
+   max-width: 500px ;
+
+  color: var(--slip-text-main);
+}
+
+.slip-card-header {
+  border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+  padding: 0.85rem 1.25rem;
+}
+
+.slip-card-header h5 {
+  margin: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slip-card-header h5 span.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 8px;
+  background: var(--slip-primary);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+}
+
+.slip-card-body {
+  padding: 1.25rem 1.25rem 1.4rem;
+  
+}
+
+/* ปุ่ม */
+.slip-btn-primary {
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--slip-primary), var(--slip-primary-strong));
+  border: none;
+  color: #3b6792;
+  font-weight: 400;
+  box-shadow: var(--slip-shadow-button);
+  transition: all 0.18s ease-out;
+}
+
+.slip-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(22, 163, 74, 0.75);
+  color: #ecfdf5;
+}
+
+.slip-btn-secondary {
+  border-radius: 5px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--slip-text-main);
+  font-weight: 500;
+}
+
+.slip-chip-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+  border: 1px solid rgba(148, 163, 184, 0.65);
+  color: var(--slip-text-muted);
+}
+
+.slip-chip-role span.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #38bdf8;
+}
+
+/* Login layout */
+.slip-auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.slip-auth-card {
+  max-width: 420px;
+  width: 100%;
+}
+
+/* ฟอร์ม */
+.form-label {
+  font-size: 0.85rem;
+  color: var(--slip-text-muted);
+}
+
+.form-control,
+.form-select {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 999px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  color: var(--slip-text-main);
+  font-size: 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: var(--slip-primary);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.45);
+  color: var(--slip-text-main);
+}
+
+/* ตารางผู้ใช้ */
+.table-slip {
+  margin-bottom: 0;
+  font-size: 0.82rem;
+}
+
+.table-slip thead {
+  background: rgba(15, 23, 42, 0.98);
+}
+
+.table-slip thead th {
+  border-bottom-color: rgba(30, 64, 175, 0.6);
+  color: var(--slip-text-muted);
+  font-weight: 500;
+}
+
+.table-slip tbody tr {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+.table-slip tbody tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.table-slip td,
+.table-slip th {
+  border-color: rgba(31, 41, 55, 0.85);
+}
+
+/* badge */
+.badge-status-on {
+  background: rgba(34, 197, 94, 0.16);
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  color: #bbf7d0;
+  font-weight: 500;
+}
+
+.badge-status-off {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  border: 1px solid rgba(75, 85, 99, 0.8);
+  color: var(--slip-text-muted);
+}
+
+.badge-expired {
+  background: rgba(250, 204, 21, 0.1);
+  border-radius: 999px;
+  border: 1px solid rgba(250, 204, 21, 0.6);
+  color: #facc15;
+}
+
+/* layout หน้า admin */
+@media (min-width: 992px) {
+  .slip-admin-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.6fr);
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 500.98px) {
+  .slip-card {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* alert style */
+.alert-slip {
+  border-radius: 12px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(30, 64, 175, 0.05);
+  color: #fecaca;
+  font-size: 0.85rem;
+}
+
+/* เล็กน้อยสำหรับข้อความ muted */
+.text-muted-soft {
+  color: var(--slip-text-muted);
+  font-size: 0.8rem;
+}
+/* ==== LOGIN LAYOUT ใหม่ ==== */
+.slip-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(74,222,128,0.16) 0, transparent 55%),
+    radial-gradient(circle at 90% 100%, rgba(45,212,191,0.18) 0, transparent 55%),
+    radial-gradient(circle at 50% 0%, rgba(56,189,248,0.18) 0, transparent 60%),
+    #020617;
+}
+
+/* การ์ดล็อกอินเล็ก ๆ กลาส */
+.slip-login-card {
+  width: 100%;
+  max-width: 320px;              /* <<< ขนาดการ์ด */
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.92));
+  box-shadow:
+    0 28px 60px rgba(15,23,42,0.95),
+    0 0 0 1px rgba(148,163,184,0.13);
+  padding: 18px 18px 20px;
+  backdrop-filter: blur(18px);
+}
+
+/* โลโก้กลางบน */
+.login-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin-bottom: px;
+}
+
+
+.login-logo-circle-main img {
+  width: 180px;
+  height: 60px;
+}
+
+/* หัวเรื่อง */
+.login-heading-main {
+  text-align: center;
+}
+.login-heading-main .title {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.login-heading-main .subtitle {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+/* ฟอร์ม */
+.login-form-small .form-label {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+.login-form-small .form-control {
+  height: 30px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+  border: 1px solid rgba(148,163,184,0.4);
+  background: rgba(15,23,42,0.9);
+  color: #e5e7eb;
+}
+.login-form-small .form-control:focus {
+  border-color: #cacaca;
+  box-shadow: 0 0 0 1px rgba(34,197,94,0.55);
+  background: rgba(15,23,42,0.98);
+}
+
+/* ปุ่ม */
+.login-btn-main {
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  background: linear-gradient(135deg,#22c55e,#4ade80);
+  color: #022c22;
+  box-shadow:
+    0 1px 40px rgba(16, 200, 83, 0.5),
+    0 0 0 1px rgba(34,197,94,0.7);
+}
+.login-btn-main:hover {
+  filter: brightness(1.03);
+}
+
+/* แถวล่าง remember + ลืมรหัส */
+.login-row-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+.login-row-bottom small {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+.login-row-bottom a {
+  font-size: 0.75rem;
+  color: #67e8f9;
+  text-decoration: none;
+}
+.login-row-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* hint ข้างล่าง */
+.login-hint-text {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-align: center;
+}
+.login-hint-text code {
+  color: #f97316;
+}
+
+
+/* layout ผู้ใช้ */
+.slip-admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,1.4fr);
+  gap: 1.5rem;
+}
+@media (max-width: 991.98px) {
+  .slip-admin-grid {
+    grid-template-columns: minmax(0,1fr);
+  }
+}
+
+/* KPI card */
+.slip-kpi-row .slip-kpi-card {
+  border-radius: 5px;
+  padding: 12px 14px;
+  background: radial-gradient(circle at 0 0,#0f172a 0,#020617 60%);
+  border: 1px solid rgba(148,163,184,0.35);
+}
+.slip-kpi-card .label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+.slip-kpi-card .value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+.slip-kpi-card.kpi-green {
+  border-color: rgba(34,197,94,0.65);
+}
+.slip-kpi-card.kpi-red {
+  border-color: rgba(248,113,113,0.8);
+}
+
+/* ปุ่มเสริม */
+.slip-btn-soft {
+  border-radius: 999px;
+  border: 0;
+  background: rgba(34,197,94,0.12);
+  color: #6ee7b7;
+  padding-inline: 10px;
+}
+.slip-btn-soft:hover {
+  background: rgba(34,197,94,0.2);
+}
+
+/* timeline ประวัติทำรายการ */
+.slip-timeline {
+  max-height: 420px;
+  overflow-y: auto;
+}
+.timeline-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.timeline-list li {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.timeline-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(148,163,184,0.4), transparent);
+}
+.timeline-list .bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+  margin-top: 3px;
+}
+.timeline-list .content {
+  flex: 1;
+}
+.timeline-list .title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+.timeline-list .meta {
+  font-size: 0.75rem;
+  color: #a5b4fc;
+}
+.timeline-list .detail {
+  font-size: 0.75rem;
+  color: #cbd5f5;
+}
+.timeline-list .time {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.navbar-logo {
+  height: 32px;        /* ปรับขนาดโลโก้ */
+  width: auto;
+  display: block;
+}
+
+
+.provider-logo-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.55),
+    0 0 0 1px rgba(148, 163, 184, 0.6);
+}
+
+.provider-logo-img {
+  max-width: 150px;
+  max-height: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.bg_note {
+  background-color: #020617;  /* สีพื้นในลิสต์ */
+  color: #e5e7eb;             /* สีตัวอักษรในลิสต์ */
+}
+
+
+body.theme-bbl {
+  background:
+    radial-gradient(circle at -10% 10%, #1d4ed8 0, transparent 45%),
+    radial-gradient(circle at 110% 90%, #0ea5e9 0, transparent 55%),
+    linear-gradient(135deg, #020617 0%, #020617 40%, #020617 100%);
+  color: var(--slip-text-main);
+}
+
+/* หัวบนของแอป (กรอบสลิป / title bar) */
+body.theme-bbl .app-header {
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  box-shadow:
+    0 20px 46px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(191, 219, 254, 0.75);
+}
+
+/* วงโลโก้ธนาคารในหัว */
+body.theme-bbl .app-logo {
+  background:
+    radial-gradient(circle at 30% 30%, #dbeafe 0, #3b82f6 35%, #1d4ed8 70%, #020617 100%);
+  box-shadow:
+    0 10px 24px rgba(37, 99, 235, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+/* กล่องฟอร์มหลัก */
+body.theme-bbl .form-container {
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(148, 163, 184, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59,130,246,0.18) 0, transparent 50%),
+    linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
+}
+
+/* ปรับ label / title ในฟอร์มให้ติดโทนน้ำเงินนิด ๆ */
+body.theme-bbl .form-container h1,
+body.theme-bbl .form-container h2,
+body.theme-bbl .form-container .section-title {
+  color: #e5e7eb;
+}
+
+body.theme-bbl .form-label {
+  color: #bfdbfe;
+}
+
+/* ปุ่มหลัก */
+body.theme-bbl .slip-btn-primary,
+body.theme-bbl .btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+  border: none;
+  color: #e0f2fe;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.85);
+}
+body.theme-bbl .slip-btn-primary:hover,
+body.theme-bbl .btn-primary:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.95);
+}
+
+/* ปุ่มรอง */
+body.theme-bbl .slip-btn-secondary,
+body.theme-bbl .btn-outline-secondary {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+}
+
+/* พื้นหลังสลิป / กล่อง preview */
+body.theme-bbl .slip-card,
+body.theme-bbl .slip-preview-card {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59,130,246,0.16) 0, transparent 40%),
+    linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,1));
+  border: 1px solid rgba(59, 130, 246, 0.55);
+}
+
+/* badge สถานะสำเร็จ / ข้อความช่วยเหลือ */
+body.theme-bbl .badge-status-on {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.55);
+}
+
+body.theme-bbl .helper-note,
+body.theme-bbl .text-muted-soft {
+  color: #9ca3af;
+}
+
+/* ฟิลด์ input ให้ออกโทนน้ำเงิน */
+body.theme-bbl .form-control,
+body.theme-bbl .form-select {
+  background: rgba(15,23,42,0.95);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+body.theme-bbl .form-control:focus,
+body.theme-bbl .form-select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+}
+
+
+/* =========================
+   ธนาคารกรุงศรี (Krungsri)
+   ใช้กับ <body class="theme-krungsri">
+   ========================= */
+
+body.theme-krungsri {
+  background:
+    radial-gradient(circle at -10% 10%, #facc15 0, #f59e0b 26%, transparent 55%),
+    radial-gradient(circle at 110% 90%, #111827 0, #020617 60%),
+    linear-gradient(135deg, #020617 0%, #020617 40%, #020617 100%);
+  color: var(--slip-text-main);
+}
+
+/* แถบหัวด้านบน */
+body.theme-krungsri .app-header {
+  background:
+    linear-gradient(135deg, #fbbf24, #f59e0b 40%, #111827 100%);
+  box-shadow:
+    0 20px 46px rgba(15,23,42,0.95),
+    0 0 0 1px rgba(250,204,21,0.65);
+  border-bottom: 1px solid rgba(17,24,39,0.9);
+}
+
+/* วงโลโก้ */
+body.theme-krungsri .app-logo {
+  background:
+    radial-gradient(circle at 30% 10%, #fef9c3 0, #fde68a 35%, #f59e0b 65%, #111827 100%);
+  box-shadow:
+    0 12px 26px rgba(250,204,21,0.85),
+    0 0 0 1px rgba(17,24,39,0.9);
+  border-radius: 20px;
+}
+
+/* กล่องฟอร์มหลัก */
+body.theme-krungsri .form-container {
+  background: radial-gradient(circle at 0 0,#020617 0,#020617 55%);
+  border-radius: 16px;
+  border: 1px solid rgba(250,204,21,0.45);
+  box-shadow:
+    0 24px 60px rgba(15,23,42,0.95),
+    0 0 0 1px rgba(15,23,42,0.9);
+}
+
+/* ปุ่มหลัก / ปุ่มสร้างสลิป */
+body.theme-krungsri .slip-btn-primary,
+body.theme-krungsri .btn-generate,
+body.theme-krungsri .btn-primary {
+  background: linear-gradient(135deg,#facc15,#f59e0b);
+  border: 0;
+  color: #1f2933;
+  box-shadow: 0 12px 30px rgba(250,204,21,0.65);
+}
+
+body.theme-krungsri .slip-btn-primary:hover,
+body.theme-krungsri .btn-generate:hover,
+body.theme-krungsri .btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 16px 38px rgba(250,204,21,0.85);
+}
+
+/* แท็ก / badge สถานะ */
+body.theme-krungsri .badge-status-on {
+  background: rgba(250,204,21,0.12);
+  border-color: rgba(250,204,21,0.7);
+  color: #fef9c3;
+}
+
+body.theme-krungsri .badge-expired {
+  background: rgba(248,113,113,0.1);
+  border-color: rgba(248,113,113,0.7);
+}
+
+/* =========================
+   ธนาคารออมสิน (GSB)
+   ใช้กับ <body class="theme-gsb">
+   ========================= */
+
+body.theme-gsb {
+  background:
+    radial-gradient(circle at -10% 10%, #f472b6 0, rgba(131,24,67,0.5) 28%, transparent 55%),
+    radial-gradient(circle at 110% 90%, #4c1d95 0, #020617 60%),
+    linear-gradient(135deg, #020617 0%, #020617 40%, #020617 100%);
+  color: var(--slip-text-main);
+}
+
+/* แถบหัวด้านบน */
+body.theme-gsb .app-header {
+  background:
+    linear-gradient(135deg, #ec4899, #db2777 40%, #4c1d95 100%);
+  box-shadow:
+    0 20px 46px rgba(15,23,42,0.95),
+    0 0 0 1px rgba(244,114,182,0.7);
+  border-bottom: 1px solid rgba(17,24,39,0.9);
+}
+
+/* วงโลโก้ / กรอบโลโก้ด้านบน */
+body.theme-gsb .app-logo {
+  background:
+    radial-gradient(circle at 30% 10%, #fdf2f8 0, #f9a8d4 35%, #db2777 65%, #111827 100%);
+  box-shadow:
+    0 12px 26px rgba(236,72,153,0.9),
+    0 0 0 1px rgba(24,24,37,0.95);
+  border-radius: 20px;
+}
+
+/* กล่องฟอร์มหลัก */
+body.theme-gsb .form-container {
+  background: radial-gradient(circle at 0 0,#020617 0,#020617 55%);
+  border-radius: 16px;
+  border: 1px solid rgba(248,187,208,0.75);
+  box-shadow:
+    0 24px 60px rgba(15,23,42,0.95),
+    0 0 0 1px rgba(24,24,37,0.95);
+}
+
+/* ปุ่มหลัก / ปุ่มสร้างสลิป */
+body.theme-gsb .slip-btn-primary,
+body.theme-gsb .btn-generate,
+body.theme-gsb .btn-primary {
+  background: linear-gradient(135deg,#ec4899,#db2777);
+  border: 0;
+  color: #fdf2f8;
+  box-shadow: 0 12px 30px rgba(236,72,153,0.7);
+}
+
+body.theme-gsb .slip-btn-primary:hover,
+body.theme-gsb .btn-generate:hover,
+body.theme-gsb .btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 16px 38px rgba(236,72,153,0.9);
+}
+
+/* chip / ป้าย role */
+body.theme-gsb .slip-chip-role {
+  border-color: rgba(248,187,208,0.9);
+  color: #fecdd3;
+}
+body.theme-gsb .slip-chip-role .dot {
+  background: #fb7185;
+  box-shadow: 0 0 8px rgba(248,113,113,0.9);
+}
+
+/* badge สถานะ */
+body.theme-gsb .badge-status-on {
+  background: rgba(236,72,153,0.16);
+  border-radius: 999px;
+  border: 1px solid rgba(236,72,153,0.75);
+  color: #f9a8d4;
+  font-weight: 500;
+}
+
+body.theme-gsb .badge-status-off {
+  background: rgba(24,24,37,0.95);
+  border-radius: 999px;
+  border: 1px solid rgba(75,85,99,0.85);
+  color: var(--slip-text-muted);
+}
+
+body.theme-gsb .badge-expired {
+  background: rgba(250,204,21,0.08);
+  border-radius: 999px;
+  border: 1px solid rgba(250,204,21,0.75);
+  color: #facc15;
+}
+
+/* header ของการ์ด slip ทั่วไป */
+body.theme-gsb .slip-card-header {
+  border-bottom-color: rgba(88,28,135,0.9);
+}
+/* ===== SIDEBAR ตามธีมธนาคาร ===== */
+
+/* KBank – เขียว */
+body.theme-kbank {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #16a34a 0, #052e16 35%, #020617 100%);
+}
+
+/* SCB – ม่วง */
+body.theme-scb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #4c1d95 30%, #020617 100%);
+}
+
+/* กรุงไทย – ฟ้า */
+body.theme-ktb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #0ea5e9 0, #0369a1 35%, #020617 100%);
+}
+
+/* กรุงศรี – เหลือง */
+body.theme-kung {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #facc15 0, #ca8a04 35%, #020617 100%);
+}
+
+/* กรุงเทพ – น้ำเงิน */
+body.theme-bl {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #2563eb 0, #1d4ed8 35%, #020617 100%);
+}
+
+/* ออมสิน – ชมพู */
+body.theme-gsb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #ec4899 0, #be185d 35%, #020617 100%);
+}
+
+/* TTB – น้ำเงินส้ม */
+body.theme-ttb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #0f172a 0, #1d4ed8 40%, #020617 100%);
+}
+
+/* MAKE – เขียวมิ้นท์ + ม่วง */
+body.theme-make {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #22c55e 0, #22d3ee 35%, #0f172a 100%);
+}
+
+/* ===== SIDEBAR + NAVBAR ตามธีมธนาคาร ===== */
+
+/* KBank – เขียว (ธีมหลักเดิม) */
+body.theme-kbank {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #16a34a 0, #052e16 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #16a34a 0, #065f46 26%, #020617 80%);
+  --navbar-accent: rgba(34, 197, 94, 0.35);
+}
+
+/* SCB – ม่วง */
+body.theme-scb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #4c1d95 30%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #5b21b6 30%, #020617 85%);
+  --navbar-accent: rgba(168, 85, 247, 0.55);
+}
+
+/* กรุงไทย */
+body.theme-ktb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #0ea5e9 0, #0369a1 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #0ea5e9 0, #0284c7 30%, #020617 85%);
+  --navbar-accent: rgba(56, 189, 248, 0.5);
+}
+
+/* กรุงศรี */
+body.theme-kung {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #facc15 0, #ca8a04 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #facc15 0, #eab308 30%, #020617 85%);
+  --navbar-accent: rgba(250, 204, 21, 0.6);
+}
+
+/* กรุงเทพ */
+body.theme-bl {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #2563eb 0, #1d4ed8 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #2563eb 0, #1d4ed8 30%, #020617 85%);
+  --navbar-accent: rgba(59, 130, 246, 0.55);
+}
+
+/* ออมสิน */
+body.theme-gsb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #ec4899 0, #be185d 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #ec4899 0, #db2777 30%, #020617 85%);
+  --navbar-accent: rgba(244, 114, 182, 0.6);
+}
+
+/* TTB */
+body.theme-ttb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #0f172a 0, #1d4ed8 40%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #1d4ed8 0, #0f172a 50%, #020617 100%);
+  --navbar-accent: rgba(59, 130, 246, 0.5);
+}
+
+/* MAKE */
+body.theme-make {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #22c55e 0, #22d3ee 35%, #0f172a 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #22c55e 0, #22d3ee 40%, #0f172a 100%);
+  --navbar-accent: rgba(45, 212, 191, 0.65);
+}
+
+body.theme-scb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #4c1d95 30%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #5b21b6 30%, #020617 85%);
+  --navbar-accent: rgba(168, 85, 247, 0.55);
+}
+/* ===== SIDEBAR + NAVBAR ตามธีมธนาคาร ===== */
+
+/* KBank – เขียว (ธีมหลักเดิม) */
+body.theme-kbank {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #16a34a 0, #052e16 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #16a34a 0, #065f46 26%, #020617 80%);
+  --navbar-accent: rgba(34, 197, 94, 0.35);
+}
+
+/* SCB – ม่วง */
+body.theme-scb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #4c1d95 30%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #7c3aed 0, #5b21b6 30%, #020617 85%);
+  --navbar-accent: rgba(168, 85, 247, 0.55);
+}
+
+/* กรุงไทย */
+body.theme-ktb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #0ea5e9 0, #0369a1 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #0ea5e9 0, #0284c7 30%, #020617 85%);
+  --navbar-accent: rgba(56, 189, 248, 0.5);
+}
+
+/* กรุงศรี */
+body.theme-kung {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #facc15 0, #ca8a04 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #facc15 0, #eab308 30%, #020617 85%);
+  --navbar-accent: rgba(250, 204, 21, 0.6);
+}
+
+/* กรุงเทพ */
+body.theme-bl {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #2563eb 0, #1d4ed8 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #2563eb 0, #1d4ed8 30%, #020617 85%);
+  --navbar-accent: rgba(59, 130, 246, 0.55);
+}
+
+/* ออมสิน */
+body.theme-gsb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #ec4899 0, #be185d 35%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #ec4899 0, #db2777 30%, #020617 85%);
+  --navbar-accent: rgba(244, 114, 182, 0.6);
+}
+
+/* TTB */
+body.theme-ttb {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #0f172a 0, #1d4ed8 40%, #020617 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #1d4ed8 0, #0f172a 50%, #020617 100%);
+  --navbar-accent: rgba(59, 130, 246, 0.5);
+}
+
+/* MAKE */
+body.theme-make {
+  --sidebar-bg:
+    radial-gradient(circle at 0% 0%, #22c55e 0, #22d3ee 35%, #0f172a 100%);
+  --navbar-bg:
+    radial-gradient(circle at 0% 0%, #22c55e 0, #22d3ee 40%, #0f172a 100%);
+  --navbar-accent: rgba(45, 212, 191, 0.65);
+}
+
+/* ===========================
+   โหมดพาสเทล (ทุกหน้า / ทุกธนาคาร)
+   =========================== */
+
+/* พื้นหลังรวม */
+body.theme-pastel{
+  background:
+    radial-gradient(circle at 0% 0%, #e0f2fe 0, #fdf2ff 40%, #f9fafb 100%);
+  color:#0f172a;
+}
+
+/* Sidebar ทุกธนาคาร */
+body.theme-pastel .slip-sidebar{
+  background: linear-gradient(180deg,#fef3c7 0%,#e0f2fe 40%,#f5f3ff 100%);
+  color:#0f172a;
+  box-shadow: 12px 0 30px rgba(15,23,42,0.45);
+}
+
+body.theme-pastel .sidebar-user-role{
+  color:#4b5563;
+}
+
+body.theme-pastel .sidebar-link{
+  color:#111827;
+}
+body.theme-pastel .sidebar-link:hover,
+body.theme-pastel .sidebar-link.active{
+  background:rgba(148,163,184,0.18);
+  color:#111827;
+}
+
+/* Navbar ทุกหน้า */
+body.theme-pastel .slip-navbar{
+  background: linear-gradient(90deg,#e0f2fe,#fae8ff);
+  box-shadow:
+    0 18px 36px rgba(15,23,42,0.35),
+    0 0 0 1px rgba(148,163,184,0.5);
+}
+
+/* การ์ดพื้นหลังต่าง ๆ */
+body.theme-pastel .slip-card,
+body.theme-pastel .app-bank-grid-card,
+body.theme-pastel .slip-card-hero{
+  background: rgba(255,255,255,0.94);
+  border-radius: 20px;
+  box-shadow:
+    0 14px 30px rgba(148,163,184,0.45);
+  border: 1px solid rgba(226,232,240,0.9);
+}
+
+/* โลโก้ธนาคารทั้งหมดใน grid */
+body.theme-pastel .provider-logo-wrap{
+  background:
+    radial-gradient(circle at 0% 0%, rgba(254,249,195,0.9), transparent 60%),
+    linear-gradient(135deg,#bae6fd,#fae8ff);
+  box-shadow:
+    0 16px 30px rgba(148,163,184,0.55),
+    0 0 0 1px rgba(226,232,240,0.9);
+}
+
+/* ตัวหนังสือจางๆ */
+body.theme-pastel .text-muted-soft{
+  color:#6b7280 !important;
+}
+
+/* ถ้ามี app-header (หัวสลิป) ให้พื้นหลังซอฟต์ลงทุกธนาคาร */
+body.theme-pastel .app-header{
+  background: linear-gradient(135deg,#e0f2fe,#fae8ff);
+  box-shadow:
+    0 20px 46px rgba(15,23,42,0.45),
+    0 0 0 1px rgba(226,232,240,0.9);
+}
+
+/* กล่องฟอร์มฝั่งขวาให้พาสเทลอ่อน ๆ */
+body.theme-pastel .form-container{
+  background: rgba(255,255,255,0.96);
+  box-shadow:
+    0 18px 40px rgba(148,163,184,0.45);
+  border-radius: 18px;
+}
+
+/* ปุ่ม DOWNLOAD / ปุ่มหลักอื่นๆ */
+body.theme-pastel .btn-download,
+body.theme-pastel .btn-primary,
+body.theme-pastel .btn-success{
+  background: linear-gradient(135deg,#a5b4fc,#f9a8d4);
+  border:none;
+  color:#111827;
+  box-shadow:0 10px 18px rgba(148,163,184,0.65);
+}
+body.theme-pastel .btn-download:hover,
+body.theme-pastel .btn-primary:hover,
+body.theme-pastel .btn-success:hover{
+  filter:brightness(0.97);
+  transform: translateY(-1px);
+}
+
+/* ปุ่ม outline ให้ขอบพาสเทล */
+body.theme-pastel .btn-outline-light,
+body.theme-pastel .btn-outline-secondary{
+  border-color:#c4b5fd;
+  color:#4b5563;
+}
+body.theme-pastel .btn-outline-light:hover,
+body.theme-pastel .btn-outline-secondary:hover{
+  background:rgba(196,181,253,0.15);
+  color:#111827;
+}
+
+/* Input / select ให้ซอฟต์ลงทุกหน้า */
+body.theme-pastel input[type="text"],
+body.theme-pastel input[type="time"],
+body.theme-pastel input[type="datetime-local"],
+body.theme-pastel select{
+  background-color:#f9fafb;
+  border:1px solid #e5e7eb;
+  color:#111827;
+}
+body.theme-pastel input:focus,
+body.theme-pastel select:focus{
+  border-color:#a5b4fc;
+  box-shadow:0 0 0 3px rgba(165,180,252,0.35);
+}
+
+/* ถ้ามีสวิตช์ Note Slip */
+body.theme-pastel .note-mode-label{
+  color:#6366f1;
+}
+body.theme-pastel #noteOptions{
+  background-color:#eef2ff;
+  border-color:#a5b4fc;
+}
+
+/* ให้ใช้ได้ทั้ง KBank, TTB, GSB, ฯลฯ
+   (ถ้ามี theme เฉพาะ สามารถ override ลึกลงไปได้ เช่น) */
+
+/* ตัวอย่าง KBank pastel */
+body.theme-pastel.theme-kbank .app-header{
+  background: linear-gradient(135deg,#dcfce7,#bbf7d0);
+}
+body.theme-pastel.theme-kbank .note-mode-label{
+  color:#16a34a;
+}
+
+/* ตัวอย่าง TTB pastel */
+body.theme-pastel.theme-ttb .app-header{
+  background: linear-gradient(135deg,#e0f2fe,#dbeafe);
+}
+body.theme-pastel.theme-ttb .note-mode-label{
+  color:#2563eb;
+}
+
+/* ตัวอย่าง GSB pastel */
+body.theme-pastel.theme-gsb .app-header{
+  background: linear-gradient(135deg,#fdf2ff,#fce7f3);
+}
+body.theme-pastel.theme-gsb .note-mode-label{
+  color:#db2777;
+}
+
+/* ==================================================
+   จัดเรียงตารางธนาคารให้กระจายเต็มหน้า (ลดช่องโหว่)
+   ================================================== */
+.provider-grid {
+    display: grid !important;
+    /* สั่งให้กล่องกว้างขั้นต่ำ 140px และขยายให้เต็มพื้นที่อัตโนมัติ */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 20px !important; 
+    justify-items: center !important; 
+}
+
+.provider-item {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-decoration: none !important;
+}
+
+/* ==================================================
+   สร้าง "กล่องแอปสี่เหลี่ยมขอบมน" มารองรับรูปใสๆ ของคุณ
+   ================================================== */
+.provider-logo-wrap {
+    width: 100% !important;
+    max-width: 140px !important; /* ขนาดความกว้างกล่องเท่าต้นฉบับ */
+    aspect-ratio: 1 / 1 !important; /* บังคับให้เป็นสี่เหลี่ยมจัตุรัสเป๊ะๆ */
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important; /* สีพื้นหลังกล่อง (น้ำเงินเทาเข้ม) */
+    border-radius: 28px !important; /* ความโค้งมนของขอบกล่อง */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important; /* เงาใต้กล่อง */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ไปชี้ที่กล่อง */
+.provider-item:hover .provider-logo-wrap {
+    transform: translateY(-6px) !important; /* กล่องเด้งลอยขึ้น */
+    background: linear-gradient(135deg, #27364d 0%, #17223b 100%) !important; /* สีกล่องสว่างขึ้นนิดนึง */
+    border-color: #22c55e !important; /* เส้นขอบเปลี่ยนเป็นสีเขียว */
+    box-shadow: 0 12px 25px rgba(34, 197, 94, 0.2) !important; /* เงาสีเขียวเรืองแสง */
+}
+
+/* ==================================================
+   จัดการขนาดรูปโลโก้วงกลมของคุณ (ให้อยู่ตรงกลางกล่อง)
+   ================================================== */
+.provider-logo-img {
+    width: 60% !important; /* บังคับให้รูปกินพื้นที่แค่ 60% ของกล่อง จะได้เหลือขอบสวยๆ */
+    height: auto !important;
+    object-fit: contain !important;
+    transition: all 0.3s ease !important;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ชี้ ให้รูปขยายขึ้นนิดนึง */
+.provider-item:hover .provider-logo-img {
+    transform: scale(1.1) !important;
+}
+
+/* ตกแต่งตัวอักษรชื่อธนาคารด้านล่าง */
+.text-muted-soft {
+    color: #94a3b8 !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    transition: 0.3s !important;
+}
+
+/* เวลาเอาเมาส์ชี้ ให้ตัวอักษรเปลี่ยนเป็นสีขาว */
+.provider-item:hover .text-muted-soft {
+    color: #ffffff !important;
+}
