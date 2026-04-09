@@ -555,6 +555,7 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
+
     onAuthStateChanged(auth, async (user) => {
         if (!user) {
             window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
@@ -564,49 +565,49 @@
                 if (docSnap.exists()) {
                     const data = docSnap.data();
                     const localSession = localStorage.getItem('currentSessionId');
-                    if (data.currentSessionId && data.currentSessionId !== localSession) {
-                        alert("⚠️ มีการล็อคอินซ้อน กำลังออกจากระบบ..");
+
+                    if (localSession && data.currentSessionId && data.currentSessionId !== localSession) {
+                        alert("⚠️ มีการเข้าสู่ระบบจากเครื่องอื่น ระบบจะนำคุณออกจากเครื่องนี้");
                         await signOut(auth);
                         window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
                         return;
                     }
+
                     const now = new Date();
                     const expiryDate = (data.expiredAt && typeof data.expiredAt.toDate === 'function') 
                                        ? data.expiredAt.toDate() 
                                        : new Date(data.expiredAt);
-                    
+
                     if (data.status !== 'active' || now > expiryDate) {
                         await signOut(auth);
                         window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
                         return;
                     }
+
                     const diffMs = expiryDate - now;
-                    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-                    const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    
-                    const displayDays = diffDays > 0 ? diffDays : 0;
-                    const displayHours = diffHours > 0 ? diffHours : 0;
+                    const diffDays = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
+                    const diffHours = Math.max(0, Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
                     
                     const timeLeftElem = document.getElementById('timeLeftDisplay');
                     if(timeLeftElem) {
-                        timeLeftElem.innerText = `${displayDays} วัน ${displayHours} ชม.`; [cite: 290]
+                        timeLeftElem.innerText = `${diffDays} วัน ${diffHours} ชม.`;
                     }
+
                     document.body.style.display = 'block';
                 } else {
                     await signOut(auth);
                     window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
                 }
             }, (error) => {
-                console.error("Error with onSnapshot:", error);
+                console.error("Firebase Error:", error);
                 window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
             });
         }
     });
+
     window.logoutApp = () => {
         signOut(auth).then(() => {
             window.location.replace('https://hy-c9.github.io/Slip-H2o-login.net/');
-        }).catch((error) => {
-            alert("เกิดข้อผิดพลาดในการออกจากระบบ: " + error.message);
         });
     };
 </script>
